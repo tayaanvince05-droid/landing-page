@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCreator - Build Websites Easily</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f8f9fa; }
+        .hero { background: linear-gradient(135deg, #007bff, #0056b3); color: white; padding: 100px 0; text-align: center; }
+        .hero video { max-width: 100%; border-radius: 10px; }
+        .cta-btn { background: #28a745; border: none; padding: 15px 30px; font-size: 1.2rem; transition: transform 0.2s; }
+        .cta-btn:hover { transform: scale(1.05); }
+        .features { padding: 50px 0; }
+        .testimonial { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .social-btn { width: 100%; margin-bottom: 10px; padding: 12px; font-size: 1rem; border: none; border-radius: 5px; transition: background 0.2s; }
+        .social-btn.google { background: #db4437; color: white; }
+        .social-btn.google:hover { background: #c23321; }
+        .social-btn.facebook { background: #4267b2; color: white; }
+        .social-btn.facebook:hover { background: #365899; }
+        .social-btn.apple { background: #000; color: white; }
+        .social-btn.apple:hover { background: #333; }
+        .divider { text-align: center; margin: 20px 0; position: relative; }
+        .divider::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: #ddd; }
+        .divider span { background: white; padding: 0 10px; color: #666; }
+        .loading { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1000; }
+    </style>
+</head>
+<body>
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">WebCreator</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                </ul>
+                <a href="#" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Sign In</a>
+                <button class="btn cta-btn" data-bs-toggle="modal" data-bs-target="#signupModal">Start Free Trial</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Build Stunning Websites in Minutes</h1>
+            <p>No coding required. Drag, drop, and publish.</p>
+            <video controls muted autoplay loop>
+                <source src="demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <br><br>
+            <button class="btn cta-btn" data-bs-toggle="modal" data-bs-target="#signupModal">Start Free Trial</button>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <h3>Drag-and-Drop Editor</h3>
+                    <p>Intuitive tools for everyone.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Templates</h3>
+                    <p>Choose from hundreds of designs.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>E-commerce</h3>
+                    <p>Sell online seamlessly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="testimonial mx-auto" style="max-width: 600px;">
+                            <p>"WebCreator made my site in hours!" - Jane Doe</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Teaser -->
+    <section id="pricing" class="py-5">
+        <div class="container text-center">
+            <h2>Simple Pricing</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Free</h5>
+                            <p>Basic features.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2023 WebCreator. <a href="#" class="text-white">Privacy</a></p>
+        </div>
+    </footer>
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signupModalLabel">Create Your Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="signupError" class="alert alert-danger" style="display: none;"></div>
+                    <button class="social-btn google" onclick="socialLogin('google')">
+                        <i class="fab fa-google me-2"></i>Continue with Google
+                    </button>
+                    <button class="social-btn facebook" onclick="socialLogin('facebook')">
+                        <i class="fab fa-facebook-f me-2"></i>Continue with Facebook
+                    </button>
+                    <button class="social-btn apple" onclick="socialLogin('apple')">
+                        <i class="fab fa-apple me-2"></i>Continue with Apple
+                    </button>
+                    <div class="divider"><span>or</span></div>
+                    <form id="signupForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" required minlength="8">
+                        </div>
+                        <button type="submit" class="btn cta-btn w-100">Create Account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Sign In</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="loginError" class="alert alert-danger" style="display: none;"></div>
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Sign In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const API_BASE = 'http://localhost:5000/api';
+
+        // Check if user is logged in
+        if (localStorage.getItem('token')) {
+            window.location.href = 'dashboard.html';
+        }
+
+        // Signup
+        document.getElementById('signupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            showLoading(true);
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            try {
+                const res = await fetch(`${API_BASE}/auth/signup`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, password })
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    localStorage.setItem('token', data.token);
+                    window.location.href = 'dashboard.html';
+                } else {
+                    showError('signupError', data.error);
+                }
+            } catch (err) {
+                showError('signupError', 'Network error. Try again.');
+            }
+            showLoading(false);
+        });
+
+        // Login
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            showLoading(true);
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            try {
+                const res = await fetch(`${API_BASE}/auth/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    localStorage.setItem('token', data.token);
+                    window.location.href = 'dashboard.html';
+                } else {
+                    showError('loginError', data.error);
+                }
+            } catch (err) {
+                showError('loginError', 'Network error. Try again.');
+            }
+            showLoading(false);
+        });
+
+        // Social Login (Simulation - In real app, integrate OAuth)
+        function socialLogin(provider) {
+            alert(`Redirecting to ${provider}... (Demo: Simulate success)`);
+            // Simulate: fetch(`${API_BASE}/auth/social-login`, { ... }).then(() => redirect)
+        }
+
+        function showLoading(show) {
+            document.getElementById('loading').style.display = show ? 'block' : 'none';
+        }
+
+        function showError(elementId, message) {
+            const el = document.getElementById(elementId);
+            el.textContent = message;
+            el.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
